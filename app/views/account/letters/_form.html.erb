@@ -1,0 +1,5 @@
+<br>
+<%= simple_form_for [:account ,@letter] do |f| %>
+  <%= f.input :content, label: '邮件内容',input_html: { class: "form-control" ,rows: 10} %>
+  <%= f.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
+<% end %>

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- 导航条 -->
+    <%=  render "common/tabsforletter" %>
+
+    <!-- 信件条目 -->
+    <div class="col-md-8">
+      <br>
+      <!-- 历史信件 -->
+      <% if @letters.present? %>
+        <% @letters.each do |letter| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to(letter.id, edit_account_letter_path(letter), class: "btn btn-default") %>
+            <p>
+              <%= letter.content %>
+            </p>            
+          </div>
+          <div class="col-md-6">
+            <%= link_to('删除', account_letter_path(letter),:method => :delete,:data => { :confirm => "确定删除该邮件吗?" }, class: "btn btn-default") %>
+            <%= link_to('预览', account_letter_path(letter), class: "btn btn-default") %>
+          </div>
+
+        </div>
+        <% end %>
+      <% end %>
+      
+      <!-- 新建信件 -->
+      <%= link_to("新建邮件", new_account_letter_path, class: "btn btn-default") %>
+
+    </div>    
+    <!-- 信件条目 -->
+
+
+    <!-- 提示信息 -->
+    <div class="col-md-4">
+      <h1>提示</h1>
+    </div>
+    <!-- 提示信息 -->
+
+
+
+  </div>
+</div>

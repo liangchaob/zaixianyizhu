@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112074128) do
+ActiveRecord::Schema.define(version: 20161112094752) do
 
   create_table "heartbeats", force: :cascade do |t|
-    t.string   "contact_way"
-    t.integer  "interval"
-    t.integer  "timeout"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "contact_way", default: "email"
+    t.integer  "interval",    default: 90
+    t.integer  "timeout",     default: 90
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "user_id"
   end
 
   create_table "letters", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.string   "contact_a"
     t.string   "contact_b"
     t.boolean  "posted",     default: false
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161112074128) do
     t.boolean  "effect",     default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

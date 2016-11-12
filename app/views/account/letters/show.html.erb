@@ -1,0 +1,12 @@
+
+
+<!-- 遗书正文 -->
+<div class="container main-note">
+    <div class="col-xs-10  col-xs-offset-1">
+        <h1><%= @letter.user.email %> 的遗嘱</h1>
+        <br>
+        <%= simple_format(@letter.content) %>
+    </div>
+
+</div>
+

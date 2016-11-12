@@ -1,2 +1,0 @@
-class HeartbeatsController < ApplicationController
-end

@@ -1,0 +1,2 @@
+module Account::LettersHelper
+end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HeartbeatsControllerTest < ActionDispatch::IntegrationTest
+class Account::LettersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
