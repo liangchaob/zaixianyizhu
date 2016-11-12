@@ -1,8 +1,11 @@
 class Account::LettersController < ApplicationController
 
   before_action :authenticate_user!
+  # 查找用户配置文件
+  before_action :find_profile , only: [:index]
 
   def index
+    # 建立profile
     @letters = Letter.where(user_id: current_user)
   end
 
@@ -50,9 +53,23 @@ class Account::LettersController < ApplicationController
 
 
   private
-  # 参数
+  # 邮件参数
   def letter_params
     params.require(:letter).permit(:content)
   end
+
+  # 找profile
+  def find_profile
+    @heartbeats = Heartbeat.where(user_id: current_user)
+    # 如果没有该用户配置文件就建立一个
+    if @heartbeats.blank?
+       @heartbeat = Heartbeat.new
+       @heartbeat.user = current_user
+       @heartbeat.save
+    else
+      @heartbeat = @heartbeats.first
+    end
+  end
+
 
 end

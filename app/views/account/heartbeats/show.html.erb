@@ -2,18 +2,27 @@
   <div class="col-md-12">
 
     <!-- 导航条 -->
-    <div class="row">
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="col-md-6"><a href="#">遗嘱</a></li>
-        <li role="presentation" class="active col-md-6"><a href="#">心跳</a></li>
-      </ul>
-    </div>
+    <%= render "common/tabsforheartbeat" %>
 
     <!-- 信件表单 -->
     <div class="col-md-8">
       <hr>
-      <h3>修改邮件</h3>
-      <%=  render "form" %>
+      <h3>修改配置</h3>
+      <br>
+      <%= simple_form_for [:account ,@heartbeat] do |h| %>
+        <p>
+          心跳方式：<%= h.contact_way %>
+        </p>
+        <p>
+          心跳间隔：<%= h.interval %>
+        </p>
+        <p>
+          心跳超时：<%= h.timeout %>
+        </p>
+        <%#= f.input :content, label: '邮件内容',input_html: { class: "form-control" ,rows: 10} %>
+        <%= h.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
+      <% end %>
+      
 
     </div>    
     <!-- 信件条目 -->

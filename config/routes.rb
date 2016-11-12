@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :letters
-    resource :heartbeats
+    resources :heartbeats
   end
 
   root 'landingpages#index'
