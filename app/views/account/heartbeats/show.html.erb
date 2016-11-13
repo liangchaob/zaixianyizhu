@@ -10,22 +10,23 @@
       <h3>修改配置</h3>
       <br>
 
-      <%  %>
+      <%= simple_form_for  [:account, @heartbeat] do |h| %>
       
         <p>
-          心跳方式：<%= @heartbeat.contact_way %>
+          
+          <%= h.input :contact_way, label: '心跳方式', collection: [["邮件", "email"], ["短信", "sms"]],:selected => @heartbeat.contact_way,input_html: { class: "form-control"} %>
         </p>
         <p>
-          心跳间隔：<%= @heartbeat.interval %>
+        <%= h.input :interval, label: '心跳间隔', collection: [['30天', 30], ['90天', 90],['180天', 180]],:selected => @heartbeat.interval,input_html: { class: "form-control"} %>
         </p>
         <p>
-          心跳超时：<%= @heartbeat.timeout %>
+        <%= h.input :timeout, label: '心跳超时', collection: [['30天', 30], ['90天', 90],['180天', 180]],:selected => @heartbeat.timeout,input_html: { class: "form-control"} %>
         </p>
         <%#= f.input :content, label: '邮件内容',input_html: { class: "form-control" ,rows: 10} %>
-        <%#= h.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
+        <%= h.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "更新中..." } %>
      
       
-
+    <% end %>
     </div>    
     <!-- 信件条目 -->
 

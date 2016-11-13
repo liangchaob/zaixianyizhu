@@ -10,12 +10,22 @@ class Account::HeartbeatsController < ApplicationController
 
 
   def show
-    @heartbeats = Heartbeat.where(user_id: current_user)
-    @heartbeat = @heartbeats.first
+  end
+
+  def update
+    if @heartbeat.update(heartbeat_params)
+      redirect_to :back
+    else
+      redirect_to :back
+    end   
   end
 
 
   private
+
+  def heartbeat_params
+    params.require(:heartbeat).permit(:contact_way,:interval,:timeout)
+  end
 
   # 找profile
   def find_profile
