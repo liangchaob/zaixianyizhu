@@ -2,7 +2,7 @@ class Account::LettersController < ApplicationController
 
   before_action :authenticate_user!
   # 查找用户配置文件
-  before_action :find_profile , only: [:index]
+  before_action :find_profile
 
   def index
     # 建立profile

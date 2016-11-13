@@ -9,19 +9,21 @@
       <hr>
       <h3>修改配置</h3>
       <br>
-      <%= simple_form_for [:account ,@heartbeat] do |h| %>
+
+      <%  %>
+      
         <p>
-          心跳方式：<%= h.contact_way %>
+          心跳方式：<%= @heartbeat.contact_way %>
         </p>
         <p>
-          心跳间隔：<%= h.interval %>
+          心跳间隔：<%= @heartbeat.interval %>
         </p>
         <p>
-          心跳超时：<%= h.timeout %>
+          心跳超时：<%= @heartbeat.timeout %>
         </p>
         <%#= f.input :content, label: '邮件内容',input_html: { class: "form-control" ,rows: 10} %>
-        <%= h.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
-      <% end %>
+        <%#= h.submit "提交", class: "btn btn-primary btn-lg", data: { disable_with: "Submit..." } %>
+     
       
 
     </div>    

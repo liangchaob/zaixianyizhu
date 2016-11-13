@@ -1,7 +1,13 @@
 class Account::HeartbeatsController < ApplicationController
   before_action :authenticate_user!
   # 查找用户配置文件
-  before_action :find_profile , only: [:show]
+  before_action :find_profile
+
+  # 实际是修改配置的edit原型，为了路由看起来合理所以用了index
+  def index
+    
+  end
+
 
   def show
     @heartbeats = Heartbeat.where(user_id: current_user)
