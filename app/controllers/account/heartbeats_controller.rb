@@ -4,8 +4,7 @@ class Account::HeartbeatsController < ApplicationController
   before_action :find_profile
 
   # 实际是修改配置的edit原型，为了路由看起来合理所以用了index
-  def index
-    
+  def index    
   end
 
 
